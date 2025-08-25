@@ -472,11 +472,11 @@ def set_curl_options(
 
     if base_cookies:
         for morsel in base_cookies.get_cookies_for_curl(req):  # type: ignore
-            curl.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
+            c.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
     if cookies:
         temp_cookies = Cookies(cookies)
         for morsel in temp_cookies.get_cookies_for_curl(req):
-            curl.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
+            c.setopt(CurlOpt.COOKIELIST, morsel.to_curl_format())
 
     # files
     if files:
