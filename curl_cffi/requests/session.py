@@ -897,7 +897,7 @@ class AsyncSession(BaseSession[R]):
             base_url=self.base_url,
             params_list=[self.params, params],
             headers_list=[self.headers, headers],
-            cookies_list=[self.cookies, cookies],
+            cookies_list=[self._cookies, cookies],
             auth=auth or self.auth,
             timeout=self.timeout if timeout is not_set else timeout,
             allow_redirects=(
@@ -986,7 +986,7 @@ class AsyncSession(BaseSession[R]):
             data=data,
             json=json,
             headers_list=[self.headers, headers],
-            cookies_list=[self.cookies, cookies],
+            cookies_list=[self._cookies, cookies],
             files=files,
             auth=auth or self.auth,
             timeout=self.timeout if timeout is not_set else timeout,
